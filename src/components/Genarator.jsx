@@ -49,7 +49,7 @@ const Genarator = (props) => {
   }
 
   return (
-    <SectionWrapper header={"Genarate your workout"} title={["it's", 'Huge', "o's clock"]}>
+    <SectionWrapper id={'generate'} header={"Genarate your workout"} title={["it's", 'Huge', "o's clock"]}>
       <Header index={'01'} title={"Pick your split"} description={"Select your workout you wish to endure."} />
       <div className="select-btn"> 
         {Object.keys(WORKOUTS).map((type, typeIndex) => { //maping the type of workout from the object

@@ -7,7 +7,7 @@ const ExerciseCard = (props) => {
     const [setsCompleted, setSetsCompleted] = useState(0)
 
     const handleSetIncrement = () => {
-        setSetsCompleted((setsCompleted + 1) % 5)
+        setSetsCompleted((setsCompleted + 1) % 6)
     }
 
 
@@ -34,7 +34,7 @@ const ExerciseCard = (props) => {
                 })}
                 <button id="work-btn" onClick={handleSetIncrement}>
                     <h3>Sets</h3>
-                    <p>{setsCompleted[i] || 0} / 5</p>
+                    <p>{setsCompleted} / 5</p>
                 </button>
             </div>
         </div>
