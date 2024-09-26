@@ -15,18 +15,37 @@ const Header = (props) => {
   )
 }
 
-const Genarator = () => {
+const Genarator = (props) => {
 
-  const [showModel, setShowModal] = useState(false)
-  const [split, setSplit] = useState('individual')
-  const [muscles, setMuscles] = useState([])
-  const [goal, setGoal] = useState('strength_power')
+  const {split, setSplit, muscles, setMuscles, goal, setGoal, updateWorkout} = props
+
+  const [showModal, setShowModal] = useState(false)
 
   const toggleModal = () =>{ //to toggle the dropdown.
-    setShowModal(!showModel)
+    setShowModal(!showModal)
   }
-  const updateMuscle = () =>{
+  const updateMuscle = (muscleGroup) =>{
 
+    if(muscles.includes(muscleGroup)){ //remove the selected muscle group
+      setMuscles(muscles.filter(val => val !== muscleGroup)) 
+      return
+    }
+
+    if(muscles.length > 2){ //only select 3 muscle group or less
+      return
+    }
+
+    if(split !== 'individual'){ //if not individual, it directly set the muscle group
+      setMuscles([muscleGroup]) 
+      setShowModal(false) //the dropdown will close
+      return
+    }
+
+    setMuscles([...muscles, muscleGroup]) //add the muscle group to current muscles array
+
+    if (muscles.length === 2) { //in individual if we select 3rd muscle it will close
+      setShowModal(false)
+    }
   }
 
   return (
@@ -34,9 +53,10 @@ const Genarator = () => {
       <Header index={'01'} title={"Pick your split"} description={"Select your workout you wish to endure."} />
       <div className="select-btn"> 
         {Object.keys(WORKOUTS).map((type, typeIndex) => { //maping the type of workout from the object
-          return ( //if type and split is same the border click will change
+          return ( 
             <button style={{border: type === split ? '2px solid #ffffff': '2px solid #347928'}} onClick={() =>{
-              setSplit(type) //when click the button it update the state
+              setMuscles([])
+              setSplit(type)
             }} key={typeIndex}>{type.replace("_", " ")}</button>
           )
         })}
@@ -44,16 +64,16 @@ const Genarator = () => {
       <Header index={'02'} title={"Lock on targets"} description={"Select the muscles judged for annihilation."} />
       <div className="target-sec">
         <button onClick={toggleModal} className="select-muscle">  
-          <p>Select muscle groups</p>
+          <p>{muscles.length == 0 ? 'Select muscle groups' : muscles.join(' ')}</p>
           <i className="fa-solid fa-caret-down"></i>
         </button>
-        {showModel && (
+        {showModal && (
           <div className="dropdown"> 
             {(split === 'individual' ? WORKOUTS[split] : Object.keys(WORKOUTS[split])).map((muscleGroup, muscleGroupIndex) =>{
-              return( //if the split is individual it display the workouts of indiviual other wise select split and its workout
-                <button onClick={updateMuscle} key={muscleGroupIndex}>
-                  {muscleGroup}
-                </button>
+              return( //if it individual it display the workouts of indiviual, other wise select splited and its workout
+                <button onClick={() =>{ 
+                  updateMuscle(muscleGroup)
+                }} key={muscleGroupIndex} style={{color: muscles.includes(muscleGroup) ? '#419432' : ''}}>{muscleGroup}</button>
               )
             })}
           </div>
@@ -69,6 +89,7 @@ const Genarator = () => {
           )
         })}
       </div>
+      <button id="formulate" onClick={updateWorkout}>Formulate</button>
     </SectionWrapper>
   )
 }

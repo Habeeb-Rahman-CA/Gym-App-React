@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .banner h1 {
@@ -53,7 +53,7 @@ body {
 
 .banner button:hover {
     background: linear-gradient(#2a6120, #163211);
-    box-shadow: #347928c9 0px 0px 2px 2px
+    box-shadow: #347928c9 0px 0px 2px 2px;
 }
 
 .section-wrapper{
@@ -170,6 +170,10 @@ body {
     border: 2px solid #ffffff;
 }
 
+.target-sec .select-muscle p{
+    text-transform: capitalize;
+}
+
 .dropdown{
     display: flex;
     flex-direction: column;
@@ -189,4 +193,126 @@ body {
 
 .dropdown button:hover{
     color: #419432;
+}
+
+#formulate{
+    display: flex;
+    margin: 60px auto;
+    font-size: 18px;
+    padding: 10px 80px;
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(#347928, #1a3d14);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#formulate:hover{
+    background: linear-gradient(#2a6120, #163211);
+    box-shadow: #347928c9 0px 0px 2px 2px;
+}
+
+.workout-section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ex-card{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 10px -30px;
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 12px;
+}
+
+.ex-card .work-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ex-card .work-head h4{
+    font-size: 48px;
+    font-weight: bold;
+    color: #8c8c8c;
+}
+
+.ex-card .work-head h2{
+    text-transform: capitalize;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.ex-card .work-head p{
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #8c8c8c;
+}
+
+.ex-card .work-subhead{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.ex-card .work-subhead h3{
+    font-weight: 500;
+    color: #8c8c8c;
+}
+
+.ex-card .work-subhead p{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.ex-card .work-details{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ex-card .detail-card{
+    border: 1px solid #151515;
+    margin: 30px 0;
+    padding: 10px;
+    width: 25%;
+    border-radius: 12px;
+}
+
+.ex-card .detail-card h3{
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #8c8c8c;
+}
+
+.ex-card .detail-card p{
+    font-weight: 500;
+}
+
+#work-btn{
+    border: 1px solid #151515;
+    margin: 30px 0;
+    background-color: transparent;
+    padding: 10px;
+    width: 25%;
+    border-radius: 12px;
+    text-align: left;
+}
+
+#work-btn h3{
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #8c8c8c;
+}
+
+#work-btn p{
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 1rem;
 }
