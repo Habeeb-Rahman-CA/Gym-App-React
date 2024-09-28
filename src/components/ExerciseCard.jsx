@@ -23,6 +23,15 @@ const ExerciseCard = (props) => {
                 <h3>Muscle Groups</h3>
                 <p>{exercise.muscles.join(' & ')}</p>
             </div>
+            <div className="work-descri">
+                {exercise.description.split('___').map((val, i) => {
+                    return (
+                        <div key={i}>
+                            {val}
+                        </div>
+                    )
+                })}
+            </div>
             <div className="work-details">
                 {['reps', 'rest', 'tempo'].map(info => {
                     return (

@@ -20,6 +20,7 @@ function App() {
     let newWorkout = generateWorkout({ split, muscles, goal })
     console.log(newWorkout)
     setWorkout(newWorkout)
+    window.location.href = '#genarated'
   }
 
   return (

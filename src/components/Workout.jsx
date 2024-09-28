@@ -6,7 +6,7 @@ const Workout = (props) => {
   const { workout } = props
 
   return (
-    <SectionWrapper header={"Welcome to"} title={["The", 'DANGER', "zone"]}>
+    <SectionWrapper id={'genarated'} header={"Welcome to"} title={["The", 'DANGER', "zone"]}>
       <div className="workout-section">
         {workout.map((exercise, i) => {
           return (
