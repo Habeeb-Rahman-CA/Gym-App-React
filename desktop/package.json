@@ -10,12 +10,23 @@
   "build": {
     "appId": "com.gym.app",
     "productName": "LiftUp",
-    "files": [
-      "**/*"
+    "publish": [
+      {
+        "provider": "github"
+      }
     ],
     "win": {
       "target": "nsis"
-    }
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "files": [
+      "**/*"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -25,5 +36,9 @@
   "devDependencies": {
     "electron": "^40.6.1",
     "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.8.3"
   }
 }
